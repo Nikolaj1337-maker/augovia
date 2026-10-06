@@ -9,7 +9,7 @@ export default function FounderSection() {
             <h2 className="font-serif text-[2.75rem] italic leading-[1.05] md:text-6xl">
               The founder
             </h2>
-            <p className="mt-8 text-[19px] font-medium">[FOUNDER NAME]</p>
+            <p className="mt-8 text-[19px] font-medium">Nikolaj [SURNAME]</p>
             <p className="text-[15px] text-ivory/60">Founder, Augovia</p>
             <a
               href="[LINKEDIN URL]"
@@ -22,17 +22,18 @@ export default function FounderSection() {
 
           <div className="max-w-xl space-y-6 text-[18px] leading-relaxed text-ivory/70 md:text-[19px]">
             <p>
-              [FOUNDER NAME] brings more than 10 years of experience across
-              strategy consulting, Pharma, Biotech and healthcare delivery,
-              including time at Monitor Deloitte, Merck and OVID, alongside
-              work in multinational strategy consulting, the pharmaceutical
-              industry, a biotech start-up, and co-founding a private clinic.
+              Nikolaj brings more than 10 years of experience across strategy
+              consulting, Pharma, Biotech and healthcare delivery, including
+              time at multinational strategy consulting firm Monitor
+              Deloitte, pharmaceutical company Merck, setting up a mental
+              health clinic in Berlin with OVID, and as CEO of a biotech
+              start-up.
             </p>
             <p>
-              Having worked across consulting, Pharma, Biotech and healthcare
-              delivery, [FOUNDER NAME] brings a perspective that connects
-              strategic thinking with the realities of execution, built
-              across Europe, the US and selected African and Asian markets.
+              Having worked across consulting, pharma, biotech and care
+              delivery, Nikolaj brings a perspective that connects strategic
+              thinking with the realities of execution, built across Europe,
+              the US and selected African and Asian markets.
             </p>
           </div>
         </div>

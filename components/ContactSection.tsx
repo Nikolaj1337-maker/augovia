@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import { Mail } from "lucide-react";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -48,13 +47,6 @@ export default function ContactSection() {
               If you are facing a strategic challenge in Pharma, Biotech or
               Healthcare, let&rsquo;s talk.
             </p>
-            <a
-              href="mailto:hello@augovia.com"
-              className="mt-6 inline-flex items-center gap-2 text-[15px] text-stone underline underline-offset-4"
-            >
-              <Mail className="h-4 w-4" strokeWidth={1.5} />
-              hello@augovia.com
-            </a>
           </div>
 
           <form onSubmit={handleSubmit} className="max-w-xl space-y-5">
@@ -95,8 +87,7 @@ export default function ContactSection() {
             )}
             {status === "error" && (
               <p className="text-[14px] text-foliage">
-                Something went wrong. Please email hello@augovia.com
-                directly.
+                Something went wrong. Please try again in a moment.
               </p>
             )}
           </form>
