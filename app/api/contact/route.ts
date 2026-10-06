@@ -54,7 +54,7 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: "Augovia Website <onboarding@resend.dev>",
       to,
-      replyTo: email,
+      reply_to: email,
       subject: `New inquiry from ${name}${company ? ` (${company})` : ""}`,
       text: [
         `Name: ${name}`,
