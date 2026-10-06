@@ -1,4 +1,4 @@
-# Augovia — website
+# Augovia website
 
 A one-page Next.js site for Augovia, a strategic advisory firm for Pharma,
 Biotech and Healthcare leaders.
@@ -31,7 +31,7 @@ CONTACT_EMAIL=hello@augovia.com
 ```
 
 Until `RESEND_API_KEY` is set, submissions are logged to the server console
-instead of emailed, and the form still confirms receipt to the visitor —
+instead of emailed, and the form still confirms receipt to the visitor;
 nothing is lost, but you should configure this before launch.
 
 The `from` address in `app/api/contact/route.ts` uses Resend's default
@@ -39,21 +39,22 @@ The `from` address in `app/api/contact/route.ts` uses Resend's default
 Once you verify your own domain in Resend, update the `from` address to
 something like `Augovia <hello@augovia.com>`.
 
-## Before launch — content to finalize
+## Before launch: content to finalize
 
 Search the codebase for bracketed placeholders and replace them:
 
-- `[FOUNDER NAME]` — in `components/FounderSection.tsx`
-- `[LINKEDIN URL]` — in `components/FounderSection.tsx` and `components/Footer.tsx`
+- `[FOUNDER NAME]`: in `components/FounderSection.tsx`
+- `[LINKEDIN URL]`: in `components/FounderSection.tsx` and `components/Footer.tsx`
 - `[LEGAL COMPANY NAME]`, `[ADDRESS]`, `[MANAGING DIRECTOR / OWNER]`,
-  `[REGISTRATION DETAILS]`, `[VAT ID]`, `[EMAIL]` — in
+  `[REGISTRATION DETAILS]`, `[VAT ID]`, `[EMAIL]`: in
   `app/imprint/page.tsx` and `app/privacy/page.tsx`
 
 The imprint and privacy pages are placeholder content and must be reviewed
 by qualified counsel before publication.
 
-A wordmark/logo has not been implemented — the header currently uses a
-typographic "AUGOVIA" text wordmark as a placeholder.
+A wordmark/logo has not been implemented. The top bar now only shows a
+floating "Let's talk" button once you scroll past the hero; the full
+"AUGOVIA" wordmark still appears in the footer.
 
 ## Deployment
 

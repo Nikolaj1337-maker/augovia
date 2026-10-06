@@ -14,7 +14,7 @@ export default function ImprintPage() {
       <Navbar />
       <section className="px-6 py-20 md:px-10 md:py-28">
         <div className="mx-auto max-w-content">
-          <h1 className="font-serif text-4xl italic text-ink md:text-5xl">
+          <h1 className="font-serif text-[2.75rem] italic leading-[1.05] text-ink md:text-6xl">
             Imprint
           </h1>
 

@@ -14,7 +14,7 @@ export default function PrivacyPage() {
       <Navbar />
       <section className="px-6 py-20 md:px-10 md:py-28">
         <div className="mx-auto max-w-content">
-          <h1 className="font-serif text-4xl italic text-ink md:text-5xl">
+          <h1 className="font-serif text-[2.75rem] italic leading-[1.05] text-ink md:text-6xl">
             Privacy
           </h1>
 
@@ -27,8 +27,8 @@ export default function PrivacyPage() {
             </p>
             <p>
               <strong className="text-ink">Contact form.</strong> Information
-              submitted through the contact form — name, company, email
-              address, topic and message — is used solely to respond to your
+              submitted through the contact form (name, company, email
+              address, topic and message) is used solely to respond to your
               inquiry and is not shared with third parties beyond the email
               provider used to deliver the message.
             </p>

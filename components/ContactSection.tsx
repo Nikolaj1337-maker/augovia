@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import { Mail } from "lucide-react";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -40,17 +41,18 @@ export default function ContactSection() {
       <div className="mx-auto max-w-content">
         <div className="grid gap-12 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:gap-16">
           <div>
-            <h2 className="font-serif text-4xl italic text-ink md:text-5xl">
+            <h2 className="font-serif text-[2.75rem] italic leading-[1.05] text-ink md:text-6xl">
               Let&rsquo;s talk.
             </h2>
-            <p className="mt-6 max-w-sm text-[17px] leading-relaxed text-ink/70">
+            <p className="mt-6 max-w-sm text-[18px] leading-relaxed text-ink/70 md:text-[20px]">
               If you are facing a strategic challenge in Pharma, Biotech or
               Healthcare, let&rsquo;s talk.
             </p>
             <a
               href="mailto:hello@augovia.com"
-              className="mt-6 inline-block text-[15px] text-stone underline underline-offset-4"
+              className="mt-6 inline-flex items-center gap-2 text-[15px] text-stone underline underline-offset-4"
             >
+              <Mail className="h-4 w-4" strokeWidth={1.5} />
               hello@augovia.com
             </a>
           </div>

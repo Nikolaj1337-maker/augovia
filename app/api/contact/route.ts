@@ -58,9 +58,9 @@ export async function POST(req: NextRequest) {
       subject: `New inquiry from ${name}${company ? ` (${company})` : ""}`,
       text: [
         `Name: ${name}`,
-        `Company: ${company || "—"}`,
+        `Company: ${company || "Not provided"}`,
         `Email: ${email}`,
-        `Topic: ${topic || "—"}`,
+        `Topic: ${topic || "Not provided"}`,
         "",
         "Message:",
         message,

@@ -1,7 +1,17 @@
-const groups = [
+import { Compass, Users, Building2, UserCog, LucideIcon } from "lucide-react";
+
+type Group = {
+  n: string;
+  title: string;
+  icon: LucideIcon;
+  items: string[];
+};
+
+const groups: Group[] = [
   {
-    n: "01",
+    n: "1",
     title: "Strategy",
+    icon: Compass,
     items: [
       "Launch Strategy",
       "Brand Planning & Positioning",
@@ -11,8 +21,9 @@ const groups = [
     ],
   },
   {
-    n: "02",
+    n: "2",
     title: "Commercial & Field Excellence",
+    icon: Users,
     items: [
       "Commercial Narrative & Discourse Development",
       "Field Force Training",
@@ -21,8 +32,9 @@ const groups = [
     ],
   },
   {
-    n: "03",
+    n: "3",
     title: "Organizational Transformation",
+    icon: Building2,
     items: [
       "Organizational Assessment",
       "Transformation Planning",
@@ -32,8 +44,9 @@ const groups = [
     ],
   },
   {
-    n: "04",
+    n: "4",
     title: "Interim & Embedded Advisory",
+    icon: UserCog,
     items: [
       "Interim Leadership Support",
       "Embedded Strategic Support",
@@ -45,28 +58,35 @@ const groups = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="border-t border-ink/10 px-6 py-20 md:px-10 md:py-28">
+    <section id="services" className="px-6 py-20 md:px-10 md:py-28">
       <div className="mx-auto max-w-content">
         <div className="max-w-xl">
-          <h2 className="font-serif text-4xl italic text-ink md:text-5xl">
+          <h2 className="font-serif text-[2.75rem] italic leading-[1.05] text-ink md:text-6xl">
             What we do
           </h2>
-          <p className="mt-6 text-[17px] leading-relaxed text-ink/70">
+          <p className="mt-6 text-[18px] leading-relaxed text-ink/70 md:text-[20px]">
             From strategic questions to hands-on execution, Augovia supports
             leadership teams where decisions need to translate into action.
           </p>
         </div>
 
-        <div className="mt-14 grid gap-x-10 gap-y-14 md:grid-cols-2">
+        <div className="mt-14 grid gap-6 md:grid-cols-2">
           {groups.map((group) => (
-            <div key={group.n} className="border-t border-ink/10 pt-6">
-              <div className="flex items-baseline gap-3">
-                <span className="text-[13px] text-stone">{group.n}</span>
-                <h3 className="text-[19px] font-medium text-ink">
-                  {group.title}
-                </h3>
-              </div>
-              <ul className="mt-5 space-y-2.5">
+            <div
+              key={group.n}
+              className="relative overflow-hidden rounded-3xl bg-[#EFE9DC] p-8"
+            >
+              <span className="pointer-events-none absolute right-6 top-2 font-serif text-8xl italic text-ink/[0.06]">
+                {group.n}
+              </span>
+              <group.icon
+                className="h-6 w-6 text-stone"
+                strokeWidth={1.5}
+              />
+              <h3 className="mt-5 text-[20px] font-medium text-ink">
+                {group.title}
+              </h3>
+              <ul className="relative mt-5 space-y-2.5">
                 {group.items.map((item) => (
                   <li
                     key={item}

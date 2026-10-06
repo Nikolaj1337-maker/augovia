@@ -1,23 +1,36 @@
-const steps = [
+import { Target, PenTool, GraduationCap, Rocket, ArrowRight, ArrowDown, LucideIcon } from "lucide-react";
+
+type Step = {
+  n: string;
+  title: string;
+  copy: string;
+  icon: LucideIcon;
+};
+
+const steps: Step[] = [
   {
-    n: "01",
+    n: "1",
     title: "Align",
     copy: "Clarify the challenge and align leadership.",
+    icon: Target,
   },
   {
-    n: "02",
+    n: "2",
     title: "Design",
     copy: "Build the strategy, model or plan.",
+    icon: PenTool,
   },
   {
-    n: "03",
+    n: "3",
     title: "Enable",
     copy: "Equip teams with the tools, capabilities and direction to execute.",
+    icon: GraduationCap,
   },
   {
-    n: "04",
+    n: "4",
     title: "Deliver",
     copy: "Stay close to implementation where hands-on support is needed.",
+    icon: Rocket,
   },
 ];
 
@@ -26,10 +39,10 @@ export default function DeliveryPartnerSection() {
     <section className="bg-shadow px-6 py-20 text-ivory md:px-10 md:py-28">
       <div className="mx-auto max-w-content">
         <div className="max-w-2xl">
-          <h2 className="font-serif text-4xl italic md:text-5xl">
+          <h2 className="font-serif text-[2.75rem] italic leading-[1.05] md:text-6xl">
             Not just advice. Delivery.
           </h2>
-          <p className="mt-6 text-[17px] leading-relaxed text-ivory/70">
+          <p className="mt-6 text-[18px] leading-relaxed text-ivory/70 md:text-[20px]">
             Augovia combines strategic perspective with hands-on execution.
             From facilitating leadership workshops and shaping strategic
             narratives to training field teams and supporting implementation,
@@ -37,19 +50,32 @@ export default function DeliveryPartnerSection() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 flex flex-col items-stretch gap-4 lg:flex-row lg:items-center">
           {steps.map((step, i) => (
             <div
               key={step.n}
-              className={`pt-6 ${
-                i > 0 ? "border-t border-ivory/15 sm:border-t-0 sm:border-l sm:pl-8 sm:pt-0" : ""
-              }`}
+              className="flex flex-col items-stretch gap-4 lg:flex-1 lg:flex-row lg:items-center"
             >
-              <span className="text-[13px] text-mist">{step.n}</span>
-              <h3 className="mt-3 text-[19px] font-medium">{step.title}</h3>
-              <p className="mt-3 text-[15px] leading-relaxed text-ivory/60">
-                {step.copy}
-              </p>
+              <div className="flex-1 rounded-3xl border border-ivory/15 bg-ivory/[0.04] p-7">
+                <step.icon className="h-6 w-6 text-mist" strokeWidth={1.5} />
+                <p className="mt-5 text-[13px] text-mist">{step.n}</p>
+                <h3 className="mt-1 text-[19px] font-medium">{step.title}</h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-ivory/60">
+                  {step.copy}
+                </p>
+              </div>
+              {i < steps.length - 1 && (
+                <>
+                  <ArrowRight
+                    className="hidden h-5 w-5 shrink-0 text-ivory/30 lg:block"
+                    strokeWidth={1.5}
+                  />
+                  <ArrowDown
+                    className="h-5 w-5 shrink-0 self-center text-ivory/30 lg:hidden"
+                    strokeWidth={1.5}
+                  />
+                </>
+              )}
             </div>
           ))}
         </div>
