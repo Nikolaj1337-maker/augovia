@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Target, PenTool, GraduationCap, Rocket, ArrowRight, ArrowDown, LucideIcon } from "lucide-react";
 
 type Step = {
@@ -50,16 +51,20 @@ export default function DeliveryPartnerSection() {
           </p>
         </div>
 
-        <div className="mt-16 flex flex-col items-stretch gap-4 lg:flex-row lg:items-center">
+        {/* One grid row: card, arrow, card, arrow, card, arrow, card.
+            Cards stretch to the same height and share one internal structure. */}
+        <div className="mt-16 grid grid-cols-1 items-stretch gap-4 lg:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr]">
           {steps.map((step, i) => (
-            <div
-              key={step.n}
-              className="flex flex-col items-stretch gap-4 lg:flex-1 lg:flex-row lg:items-center"
-            >
-              <div className="flex-1 rounded-3xl border border-ivory/15 bg-ivory/[0.04] p-7">
-                <step.icon className="h-6 w-6 text-mist" strokeWidth={1.5} />
-                <p className="mt-5 text-[13px] text-mist">{step.n}</p>
-                <h3 className="mt-1 text-[19px] font-medium">{step.title}</h3>
+            <Fragment key={step.n}>
+              <div className="flex h-full min-w-0 flex-col rounded-3xl border border-ivory/15 bg-ivory/[0.04] p-7">
+                <step.icon
+                  className="h-6 w-6 shrink-0 text-mist"
+                  strokeWidth={1.5}
+                />
+                <p className="mt-5 text-[13px] leading-5 text-mist">{step.n}</p>
+                <h3 className="mt-1 min-h-[1.75rem] text-[19px] font-medium leading-7">
+                  {step.title}
+                </h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-ivory/60">
                   {step.copy}
                 </p>
@@ -67,16 +72,16 @@ export default function DeliveryPartnerSection() {
               {i < steps.length - 1 && (
                 <>
                   <ArrowRight
-                    className="hidden h-5 w-5 shrink-0 text-ivory/30 lg:block"
+                    className="hidden h-5 w-5 shrink-0 self-center text-ivory/30 lg:block"
                     strokeWidth={1.5}
                   />
                   <ArrowDown
-                    className="h-5 w-5 shrink-0 self-center text-ivory/30 lg:hidden"
+                    className="h-5 w-5 shrink-0 justify-self-center text-ivory/30 lg:hidden"
                     strokeWidth={1.5}
                   />
                 </>
               )}
-            </div>
+            </Fragment>
           ))}
         </div>
       </div>
