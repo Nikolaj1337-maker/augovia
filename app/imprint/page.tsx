@@ -1,46 +1,65 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import type { Metadata } from "next";
+import { LegalLayout, LegalSection, Lines, EmailText } from "@/components/Legal";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Imprint | Augovia",
 };
 
-// NOTE TO EDITOR: all bracketed placeholders below are legal
-// information that must be supplied and reviewed before launch.
 export default function ImprintPage() {
-  return (
-    <main className="bg-ivory">
-      <Navbar />
-      <section className="px-6 py-20 md:px-10 md:py-28">
-        <div className="mx-auto max-w-content">
-          <h1 className="font-serif text-[2.75rem] italic leading-[1.05] text-ink md:text-6xl">
-            Imprint
-          </h1>
+  const c = site.company;
 
-          <div className="mt-10 max-w-xl space-y-6 text-[15px] leading-relaxed text-ink/70">
-            <p>
-              [LEGAL COMPANY NAME]
-              <br />
-              [ADDRESS]
-            </p>
-            <p>
-              Managing Director / Owner: [MANAGING DIRECTOR / OWNER]
-            </p>
-            <p>Registration details: [REGISTRATION DETAILS]</p>
-            <p>VAT ID: [VAT ID]</p>
-            <p>
-              Email: <a href="mailto:[EMAIL]" className="text-stone underline underline-offset-4">[EMAIL]</a>
-            </p>
-            <p className="text-[13px] text-ink/40">
-              This page contains placeholder legal content and must be
-              reviewed and completed by qualified counsel before the site is
-              published.
-            </p>
-          </div>
-        </div>
-      </section>
-      <Footer />
-    </main>
+  return (
+    <LegalLayout title="Legal Notice">
+      <p>Information pursuant to Section 5 of the German Digital Services Act (DDG).</p>
+
+      <LegalSection title="Company Information">
+        <Lines lines={[c.name, c.street, c.postalCity, c.country]} />
+        <p>Represented by: {c.managingDirector}</p>
+      </LegalSection>
+
+      <LegalSection title="Contact">
+        <p>
+          Email: <EmailText email={c.email} />
+          <br />
+          Phone: {c.phone}
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Commercial Register">
+        <p>
+          Registered with the Commercial Register of {c.registerCourt}
+          <br />
+          Registration Number: {c.registrationNumber}
+        </p>
+      </LegalSection>
+
+      {c.vatId && (
+        <LegalSection title="VAT Identification Number">
+          <p>
+            VAT ID pursuant to Section 27a of the German Value Added Tax Act
+            (UStG): {c.vatId}
+          </p>
+        </LegalSection>
+      )}
+
+      {c.businessId && (
+        <LegalSection title="Business Identification Number">
+          <p>{c.businessId}</p>
+        </LegalSection>
+      )}
+
+      {c.regulatory && (
+        <LegalSection title="Regulatory Information">
+          <p>{c.regulatory}</p>
+        </LegalSection>
+      )}
+
+      {c.editorialResponsible && (
+        <LegalSection title="Responsibility for Editorial Content">
+          <p>{c.editorialResponsible}</p>
+        </LegalSection>
+      )}
+    </LegalLayout>
   );
 }

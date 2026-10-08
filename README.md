@@ -41,20 +41,13 @@ something like `Augovia <hello@augovia.com>`.
 
 ## Before launch: content to finalize
 
-Search the codebase for bracketed placeholders and replace them:
+All personal and company details live in one file: `lib/site.ts`.
+Replace every [BRACKETED PLACEHOLDER] there (founder surname, LinkedIn URL,
+company name, address, managing director, email, phone, register details,
+VAT ID, retention periods, supervisory authority). The Imprint and Privacy
+pages and the founder/footer sections update automatically.
 
-- `[FOUNDER NAME]`: in `components/FounderSection.tsx`
-- `[LINKEDIN URL]`: in `components/FounderSection.tsx` and `components/Footer.tsx`
-- `[LEGAL COMPANY NAME]`, `[ADDRESS]`, `[MANAGING DIRECTOR / OWNER]`,
-  `[REGISTRATION DETAILS]`, `[VAT ID]`, `[EMAIL]`: in
-  `app/imprint/page.tsx` and `app/privacy/page.tsx`
-
-The imprint and privacy pages are placeholder content and must be reviewed
-by qualified counsel before publication.
-
-A wordmark/logo has not been implemented. The top bar now only shows a
-floating "Let's talk" button once you scroll past the hero; the full
-"AUGOVIA" wordmark still appears in the footer.
+The legal texts should be reviewed by qualified counsel before publication.
 
 ## Deployment
 

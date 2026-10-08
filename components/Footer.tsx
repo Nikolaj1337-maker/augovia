@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { hasLinkedIn, site } from "@/lib/site";
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -6,34 +9,39 @@ export default function Footer() {
       <div className="mx-auto max-w-content">
         <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <p className="text-[15px] font-medium tracking-[0.12em]">
+            <Link
+              href="/"
+              className="text-[15px] font-medium tracking-[0.12em]"
+            >
               AUGOVIA
-            </p>
+            </Link>
             <p className="mt-2 max-w-xs text-[14px] text-ivory/60">
               Strategic advisory for Pharma, Biotech &amp; Healthcare.
             </p>
           </div>
 
           <ul className="flex flex-wrap gap-x-8 gap-y-3 text-[14px] text-ivory/70">
+            {hasLinkedIn && (
+              <li>
+                <a href={site.linkedinUrl} className="hover:text-ivory">
+                  LinkedIn
+                </a>
+              </li>
+            )}
             <li>
-              <a href="[LINKEDIN URL]" className="hover:text-ivory">
-                LinkedIn
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="hover:text-ivory">
+              <Link href="/#contact" className="hover:text-ivory">
                 Contact
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/imprint" className="hover:text-ivory">
+              <Link href="/imprint" className="hover:text-ivory">
                 Imprint
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/privacy" className="hover:text-ivory">
+              <Link href="/privacy" className="hover:text-ivory">
                 Privacy
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
