@@ -1,4 +1,5 @@
 import StrategyMapAnimation from "./StrategyMapAnimation";
+import AnimatedHeroHeadline from "./AnimatedHeroHeadline";
 
 export default function Hero() {
   return (
@@ -8,9 +9,7 @@ export default function Hero() {
           <p className="mb-6 text-[16px] text-stone md:text-[17px]">
             Strategic advisory for Pharma, Biotech &amp; Healthcare
           </p>
-          <h1 className="max-w-2xl font-serif text-[3.25rem] italic leading-[1.02] text-ink sm:text-[4.25rem] md:text-[5.25rem] lg:text-[6rem]">
-            Strategy, followed through to delivery.
-          </h1>
+          <AnimatedHeroHeadline className="max-w-2xl font-serif text-[3.25rem] italic leading-[1.02] text-ink sm:text-[4.25rem] md:text-[5.25rem] lg:text-[6rem]" />
           <p className="mt-9 max-w-xl text-[19px] leading-relaxed text-ink/70 md:text-[21px]">
             Augovia advises Pharma, Biotech and Healthcare leaders on strategy,
             transformation and execution, from critical decisions to
