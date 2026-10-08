@@ -1,7 +1,7 @@
 # Augovia website
 
-A one-page Next.js site for Augovia, a strategic advisory firm for Pharma,
-Biotech and Healthcare leaders.
+A one-page Next.js site for Augovia, a strategic advisory firm for Pharma and
+Biotech leaders.
 
 ## Stack
 

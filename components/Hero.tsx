@@ -6,11 +6,11 @@ export default function Hero() {
       <div className="mx-auto grid max-w-content gap-14 ">
         <div>
           <p className="mb-6 text-[16px] text-stone md:text-[17px]">
-            Strategic advisory for Pharma and Healthcare
+            Strategic advisory for Pharma and Biotech
           </p>
           <AnimatedHeroHeadline className="max-w-2xl font-serif text-[3.25rem] italic leading-[1.02] text-ink sm:text-[4.25rem] md:text-[5.25rem] lg:text-[6rem]" />
           <p className="mt-9 max-w-xl text-[19px] leading-relaxed text-ink/70 md:text-[21px]">
-            Augovia advises Pharma, Biotech and Healthcare leaders on strategy,
+            Augovia advises Pharma and Biotech leaders on strategy,
             transformation and execution, from critical decisions to
             hands-on delivery.
           </p>

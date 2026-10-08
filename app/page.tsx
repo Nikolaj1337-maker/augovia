@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import FocusSection from "@/components/FocusSection";
 import ServicesSection from "@/components/ServicesSection";
 import DeliveryPartnerSection from "@/components/DeliveryPartnerSection";
-import GeographySection from "@/components/GeographySection";
+import IndicationsSection from "@/components/IndicationsSection";
 import FounderSection from "@/components/FounderSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -16,7 +16,7 @@ export default function Home() {
       <FocusSection />
       <ServicesSection />
       <DeliveryPartnerSection />
-      <GeographySection />
+      <IndicationsSection />
       <FounderSection />
       <ContactSection />
       <Footer />

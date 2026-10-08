@@ -16,7 +16,7 @@ export default function Footer() {
               AUGOVIA
             </Link>
             <p className="mt-2 max-w-xs text-[14px] text-ivory/60">
-              Strategic advisory for Pharma, Biotech &amp; Healthcare.
+              Strategic advisory for Pharma and Biotech.
             </p>
           </div>
 

@@ -44,8 +44,8 @@ export default function ContactSection() {
               Let&rsquo;s talk.
             </h2>
             <p className="mt-6 max-w-sm text-[18px] leading-relaxed text-ink/70 md:text-[20px]">
-              If you are facing a strategic challenge in Pharma, Biotech or
-              Healthcare, let&rsquo;s talk.
+              If you are facing a strategic challenge in Pharma or
+              Biotech, let&rsquo;s talk.
             </p>
           </div>
 

@@ -21,9 +21,9 @@ const siteUrl = "https://augovia.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Augovia | Strategy & Advisory for Pharma, Biotech & Healthcare",
+  title: "Augovia | Strategy & Advisory for Pharma & Biotech",
   description:
-    "Augovia provides senior strategic advisory and hands-on execution support to Pharma, Biotech and Healthcare leaders across strategy, commercial excellence, transformation and interim leadership.",
+    "Augovia provides senior strategic advisory and hands-on execution support to Pharma and Biotech leaders across strategy, commercial excellence, transformation and interim leadership.",
   robots: {
     index: true,
     follow: true,
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
   openGraph: {
-    title: "Augovia | Strategy & Advisory for Pharma, Biotech & Healthcare",
+    title: "Augovia | Strategy & Advisory for Pharma & Biotech",
     description:
-      "Senior strategic advisory and hands-on execution support for Pharma, Biotech and Healthcare leaders.",
+      "Senior strategic advisory and hands-on execution support for Pharma and Biotech leaders.",
     url: siteUrl,
     siteName: "Augovia",
     locale: "en_US",
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Augovia | Strategy & Advisory for Pharma, Biotech & Healthcare",
+    title: "Augovia | Strategy & Advisory for Pharma & Biotech",
     description:
-      "Senior strategic advisory and hands-on execution support for Pharma, Biotech and Healthcare leaders.",
+      "Senior strategic advisory and hands-on execution support for Pharma and Biotech leaders.",
   },
 };
 

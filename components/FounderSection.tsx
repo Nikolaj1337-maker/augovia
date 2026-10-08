@@ -35,8 +35,12 @@ export default function FounderSection() {
             <p>
               Having worked across consulting, pharma, biotech and care
               delivery, {site.founderFirstName} brings a perspective that connects strategic
-              thinking with the realities of execution, built across Europe,
-              the US and selected African and Asian markets.
+              thinking with the realities of execution.
+            </p>
+            <p>
+              {site.founderFirstName} has worked on pharma topics across
+              Europe and the US, as well as in selected markets in Africa, the
+              Middle East, South America and Asia.
             </p>
           </div>
         </div>

@@ -16,8 +16,8 @@ const groups: Group[] = [
       "Launch Strategy",
       "Brand Planning & Positioning",
       "Portfolio Management",
-      "Wargaming & Competitor Analysis",
-      "Forecasting & Strategic Planning",
+      "Wargaming & Competitive response",
+      "Forecasting & Data-driven planning",
     ],
   },
   {
@@ -29,6 +29,7 @@ const groups: Group[] = [
       "Field Force Training",
       "Commercial & Medical Interaction",
       "Commercial Excellence",
+      "AI-driven analytics",
     ],
   },
   {
