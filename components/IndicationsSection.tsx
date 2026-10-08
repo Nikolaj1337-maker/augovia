@@ -8,6 +8,7 @@ import {
   Eye,
   Shield,
   Plus,
+  Star,
   LucideIcon,
 } from "lucide-react";
 
@@ -20,7 +21,8 @@ const indications: { name: string; icon: LucideIcon }[] = [
   { name: "Dermatology", icon: Hand },
   { name: "Ophthalmology", icon: Eye },
   { name: "Virology", icon: Shield },
-  { name: "and others", icon: Plus },
+  { name: "Rare diseases", icon: Star },
+  { name: "and more...", icon: Plus },
 ];
 
 export default function IndicationsSection() {
