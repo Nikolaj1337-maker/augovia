@@ -1,13 +1,12 @@
-import StrategyMapAnimation from "./StrategyMapAnimation";
 import AnimatedHeroHeadline from "./AnimatedHeroHeadline";
 
 export default function Hero() {
   return (
     <section id="top" className="px-6 pb-20 pt-16 md:px-10 md:pb-28 md:pt-24">
-      <div className="mx-auto grid max-w-content gap-14 md:grid-cols-[1.3fr_1fr] md:items-center md:gap-10">
+      <div className="mx-auto grid max-w-content gap-14 ">
         <div>
           <p className="mb-6 text-[16px] text-stone md:text-[17px]">
-            Strategic advisory for Pharma, Biotech &amp; Healthcare
+            Strategic advisory for Pharma and Healthcare
           </p>
           <AnimatedHeroHeadline className="max-w-2xl font-serif text-[3.25rem] italic leading-[1.02] text-ink sm:text-[4.25rem] md:text-[5.25rem] lg:text-[6rem]" />
           <p className="mt-9 max-w-xl text-[19px] leading-relaxed text-ink/70 md:text-[21px]">
@@ -31,7 +30,6 @@ export default function Hero() {
           </div>
         </div>
 
-        <StrategyMapAnimation />
       </div>
     </section>
   );

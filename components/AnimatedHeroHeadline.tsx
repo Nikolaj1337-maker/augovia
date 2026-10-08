@@ -94,7 +94,7 @@ export default function AnimatedHeroHeadline({
           {/* Invisible sizer reserves the width of the longest word */}
           <span className="invisible">{LONGEST + TRAILING}</span>
           <span className="absolute left-0 top-0 whitespace-nowrap">
-            {text + TRAILING}
+            {text}{text.length > 0 ? TRAILING : ""}
           </span>
         </span>
       </span>
