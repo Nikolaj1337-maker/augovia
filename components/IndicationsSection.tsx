@@ -2,6 +2,7 @@ import {
   Target,
   Droplet,
   Heart,
+  Activity,
   Brain,
   MessageCircle,
   Hand,
@@ -15,7 +16,8 @@ import {
 const indications: { name: string; icon: LucideIcon }[] = [
   { name: "Oncology", icon: Target },
   { name: "Hematology", icon: Droplet },
-  { name: "Cardiometabolism", icon: Heart },
+  { name: "Cardiology", icon: Heart },
+  { name: "Metabolism", icon: Activity },
   { name: "Neurology", icon: Brain },
   { name: "Psychiatry", icon: MessageCircle },
   { name: "Dermatology", icon: Hand },
@@ -33,7 +35,7 @@ export default function IndicationsSection() {
           Indications we have worked in
         </h2>
 
-        <ul className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+        <ul className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
           {indications.map((item) => (
             <li
               key={item.name}
