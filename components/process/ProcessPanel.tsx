@@ -44,7 +44,7 @@ export function FromToBar({ state }: { state: CycleState }) {
           style={{
             transform: `scaleX(${state.fill})`,
             opacity: state.fillOpacity,
-            backgroundColor: state.tone === "from" ? COLORS.mist : COLORS.stone,
+            backgroundColor: COLORS.stone,
           }}
         />
       </div>

@@ -13,7 +13,6 @@ import DeliverIllustration from "./process/DeliverIllustration";
 type Step = {
   n: string;
   title: string;
-  copy: string;
   quote: string;
   /** Read by screen readers in place of the animation */
   label: string;
@@ -24,15 +23,13 @@ const steps: Step[] = [
   {
     n: "1",
     title: "Align",
-    copy: "Clarify the challenge and align leadership.",
-    quote: "Alignment doesn’t remove different perspectives. It gives them a common direction.",
+    quote: "It doesn’t remove different perspectives. It gives them a common direction.",
     label: "From competing priorities to a common direction.",
     Illustration: AlignIllustration,
   },
   {
     n: "2",
     title: "Design",
-    copy: "Build the strategy, model or plan.",
     quote: "The answer isn’t more ideas. It’s a structure that connects them.",
     label: "From disconnected ideas to a coherent strategic structure.",
     Illustration: DesignIllustration,
@@ -40,7 +37,6 @@ const steps: Step[] = [
   {
     n: "3",
     title: "Enable",
-    copy: "Equip teams with the tools, capabilities and direction to execute.",
     quote: "Teams have the clarity, capabilities and connections to act.",
     label: "From isolated teams to equipped, coordinated teams.",
     Illustration: EnableIllustration,
@@ -48,7 +44,6 @@ const steps: Step[] = [
   {
     n: "4",
     title: "Deliver",
-    copy: "Stay close to implementation where hands-on support is needed.",
     quote: "Progress is tangible. The work continues beyond the strategy itself.",
     label: "From stalled initiatives to visible, tangible progress.",
     Illustration: DeliverIllustration,
@@ -89,9 +84,6 @@ export default function DeliveryPartnerSection() {
                   <h3 className="mt-1 min-h-[1.75rem] text-[19px] font-medium leading-7">
                     {step.title}
                   </h3>
-                  <p className="mt-3 text-[15px] leading-relaxed text-ivory/60">
-                    {step.copy}
-                  </p>
                 </div>
                 <div className="mx-2 mt-auto pt-6">
                   <p className="border-t border-ivory/10 pt-5 font-serif text-[18px] italic leading-snug text-ivory/85">

@@ -4,12 +4,13 @@
  * One clock drives everything: the From/To bar and all four SVGs read
  * the same state object, so they can never drift out of sync.
  *
- * Cycle:
- *   fromFill  bar fills (Mist), illustration draws into its problem state
+ * Cycle (the bar fills ONCE, left to right, from the start of fromFill to
+ * the end of toFill: one starting point, one end state):
+ *   fromFill  illustration draws into its problem state, FROM highlighted
  *   fromHold  problem state holds
- *   toGrey    bar fades back to grey, label emphasis moves FROM -> TO
- *   toFill    bar fills (Stone), illustration transforms into improved state
- *   toHold    improved state holds
+ *   toGrey    label emphasis moves FROM -> TO
+ *   toFill    illustration transforms into its improved state
+ *   toHold    improved state holds, bar full
  *   reset     bar fades to grey, label returns to FROM, illustration fades out
  */
 
@@ -37,8 +38,6 @@ export type CycleState = {
   fill: number;
   /** Bar fill opacity, fades to 0 to return the bar to grey */
   fillOpacity: number;
-  /** Which colour the fill uses */
-  tone: "from" | "to";
   /** Label emphasis: 0 = FROM highlighted, 1 = TO highlighted */
   labelMix: number;
   /** Problem-state build-up, 0..1 (FROM phase) */
@@ -57,7 +56,6 @@ export type CycleState = {
 export const RESOLVED_STATE: CycleState = {
   fill: 1,
   fillOpacity: 1,
-  tone: "to",
   labelMix: 1,
   draw: 1,
   morph: 1,
@@ -75,8 +73,12 @@ export const ease = (t: number) => -(Math.cos(Math.PI * clamp(t)) - 1) / 2;
 export const range = (t: number, start: number, end: number) =>
   clamp((t - start) / (end - start));
 
+// The bar travels once across these four segments
+const BAR_SPAN = TIMING.fromFill + TIMING.fromHold + TIMING.toGrey + TIMING.toFill;
+
 export function stateAt(elapsed: number): CycleState {
-  let t = ((elapsed % CYCLE) + CYCLE) % CYCLE;
+  const position = ((elapsed % CYCLE) + CYCLE) % CYCLE;
+  let t = position;
   let segment: Segment = "fromFill";
   for (const key of ORDER) {
     if (t < TIMING[key]) {
@@ -87,30 +89,23 @@ export function stateAt(elapsed: number): CycleState {
   }
   const p = clamp(t / TIMING[segment]);
   const e = ease(p);
-  const base = { time: elapsed, animated: true, opacity: 1 };
+  // Steady, linear sweep: one journey from the starting point to the end state
+  const fill = position < BAR_SPAN ? position / BAR_SPAN : 1;
+  const base = { time: elapsed, animated: true, opacity: 1, fill, fillOpacity: 1 };
 
   switch (segment) {
     case "fromFill":
-      return { ...base, fill: e, fillOpacity: 1, tone: "from", labelMix: 0, draw: e, morph: 0 };
+      return { ...base, labelMix: 0, draw: e, morph: 0 };
     case "fromHold":
-      return { ...base, fill: 1, fillOpacity: 1, tone: "from", labelMix: 0, draw: 1, morph: 0 };
+      return { ...base, labelMix: 0, draw: 1, morph: 0 };
     case "toGrey":
-      return { ...base, fill: 1, fillOpacity: 1 - e, tone: "from", labelMix: e, draw: 1, morph: 0 };
+      return { ...base, labelMix: e, draw: 1, morph: 0 };
     case "toFill":
-      return { ...base, fill: e, fillOpacity: 1, tone: "to", labelMix: 1, draw: 1, morph: e };
+      return { ...base, labelMix: 1, draw: 1, morph: e };
     case "toHold":
-      return { ...base, fill: 1, fillOpacity: 1, tone: "to", labelMix: 1, draw: 1, morph: 1 };
+      return { ...base, labelMix: 1, draw: 1, morph: 1 };
     case "reset":
     default:
-      return {
-        ...base,
-        fill: 1,
-        fillOpacity: 1 - e,
-        tone: "to",
-        labelMix: 1 - e,
-        draw: 1,
-        morph: 1,
-        opacity: 1 - e,
-      };
+      return { ...base, fillOpacity: 1 - e, labelMix: 1 - e, draw: 1, morph: 1, opacity: 1 - e };
   }
 }

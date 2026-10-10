@@ -58,7 +58,7 @@ export default function FocusSection() {
           </div>
         </div>
 
-        <p className="mt-16 max-w-3xl text-[22px] leading-snug text-ivory md:text-[28px]">
+        <p className="mt-16 max-w-xl text-[18px] leading-relaxed text-ivory/70 md:text-[20px]">
           Focus on the later stages of the value chain, while working closely
           with R&amp;D to ensure that long-term market needs and value drivers
           are integrated into development priorities early on.
