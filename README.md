@@ -43,6 +43,13 @@ All personal, company and legal details live in one file: `lib/site.ts`.
 The Imprint and Privacy pages, the founder section and the footer update
 automatically. The legal texts should be reviewed by qualified counsel.
 
+## Founder photo
+
+Put a photo named `founder.jpg` (or `.jpeg`, `.png`, `.webp`) into the
+`public` folder and deploy. It appears in the Founder section automatically;
+without the file, no photo is shown. A portrait (upright) image works best;
+it is cropped to a 4:5 frame.
+
 ## Deployment
 
 The project is ready for Vercel: connect the repository, set the two

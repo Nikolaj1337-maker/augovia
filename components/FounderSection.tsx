@@ -1,7 +1,11 @@
+import Image from "next/image";
 import { Linkedin } from "lucide-react";
 import { site, hasLinkedIn } from "@/lib/site";
+import { findFounderPhoto } from "@/lib/founderPhoto";
 
 export default function FounderSection() {
+  const photo = findFounderPhoto();
+
   return (
     <section id="founder" className="bg-shadow px-6 py-20 text-ivory md:px-10 md:py-28">
       <div className="mx-auto max-w-content">
@@ -10,7 +14,20 @@ export default function FounderSection() {
             <h2 className="font-serif text-[2.75rem] italic leading-[1.05] md:text-6xl">
               The founder
             </h2>
-            <p className="mt-8 text-[19px] font-medium">{site.founderFullName}</p>
+            {photo && (
+              <div className="relative mt-8 aspect-[4/5] w-36 overflow-hidden rounded-2xl bg-ivory/10 md:w-44">
+                <Image
+                  src={photo}
+                  alt={site.founderFullName}
+                  fill
+                  sizes="(min-width: 768px) 176px, 144px"
+                  className="object-cover"
+                />
+              </div>
+            )}
+            <p className={`${photo ? "mt-5" : "mt-8"} text-[19px] font-medium`}>
+              {site.founderFullName}
+            </p>
             <p className="text-[15px] text-ivory/60">Founder, Augovia</p>
             {hasLinkedIn && (
               <a

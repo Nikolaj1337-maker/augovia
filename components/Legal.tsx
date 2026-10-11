@@ -1,4 +1,6 @@
 import { ReactNode } from "react";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -20,6 +22,13 @@ export function LegalLayout({
           <div className="mt-12 max-w-2xl space-y-10 text-[16px] leading-relaxed text-ink/75">
             {children}
           </div>
+          <Link
+            href="/"
+            className="mt-16 inline-flex items-center gap-2 text-[15px] text-stone underline underline-offset-4 hover:text-ink"
+          >
+            <ArrowLeft className="h-4 w-4" strokeWidth={1.5} />
+            Go back
+          </Link>
         </div>
       </section>
       <Footer />
