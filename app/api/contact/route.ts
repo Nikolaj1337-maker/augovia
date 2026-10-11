@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { site } from "@/lib/site";
 
 export const runtime = "nodejs";
 
@@ -29,7 +30,14 @@ export async function POST(req: NextRequest) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_EMAIL || "hello@augovia.com";
+  // Where messages go: the CONTACT_EMAIL setting in Vercel if present,
+  // otherwise the company email in lib/site.ts (contact@augovia.com).
+  const to = process.env.CONTACT_EMAIL || site.company.email;
+  // Sender address. Resend's test sender works without setup but only
+  // delivers to the email address of your Resend account. Once augovia.com
+  // is verified in Resend, set CONTACT_FROM in Vercel, e.g.
+  // "Augovia Website <website@augovia.com>".
+  const from = process.env.CONTACT_FROM || "Augovia Website <onboarding@resend.dev>";
 
   // If no email provider is configured, log the submission so it is not
   // silently lost, and let the client show a graceful fallback message.
@@ -52,7 +60,7 @@ export async function POST(req: NextRequest) {
     const resend = new Resend(apiKey);
 
     await resend.emails.send({
-      from: "Augovia Website <onboarding@resend.dev>",
+      from,
       to,
       reply_to: email,
       subject: `New inquiry from ${name}${company ? ` (${company})` : ""}`,

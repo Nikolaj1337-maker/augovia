@@ -13,24 +13,36 @@ export default function ImprintPage() {
     <LegalLayout title="Legal Notice">
       <p>Information pursuant to Section 5 of the German Digital Services Act (DDG).</p>
 
-      <LegalSection title="Company Information">
+      <LegalSection title="Company">
         <Lines lines={[c.name, c.street, c.postalCity, c.country]} />
-        <p>Represented by: {c.managingDirector}</p>
+        <p>Registered office: {c.registeredOffice}</p>
+      </LegalSection>
+
+      <LegalSection title="Represented by">
+        <p>{c.managingDirector}, Managing Director</p>
       </LegalSection>
 
       <LegalSection title="Contact">
         <p>
           Email: <EmailText email={c.email} />
-          <br />
-          Phone: {c.phone}
+          {c.phone && (
+            <>
+              <br />
+              Phone: {c.phone}
+            </>
+          )}
         </p>
       </LegalSection>
 
       <LegalSection title="Commercial Register">
         <p>
-          Registered with the Commercial Register of {c.registerCourt}
-          <br />
-          Registration Number: {c.registrationNumber}
+          {c.registerCourt && (
+            <>
+              Register court: {c.registerCourt}
+              <br />
+            </>
+          )}
+          Registration number: {c.registrationNumber}
         </p>
       </LegalSection>
 
@@ -56,10 +68,33 @@ export default function ImprintPage() {
       )}
 
       {c.editorialResponsible && (
-        <LegalSection title="Responsibility for Editorial Content">
+        <LegalSection title="Responsible for Content">
+          <p>
+            Responsible for content pursuant to Section 18(2) of the German
+            Interstate Media Treaty (MStV):
+          </p>
           <p>{c.editorialResponsible}</p>
         </LegalSection>
       )}
+
+      <LegalSection title="Consumer Dispute Resolution">
+        <p>
+          We are neither willing nor obliged to participate in dispute
+          resolution proceedings before a consumer arbitration board within
+          the meaning of the German Consumer Dispute Resolution Act (VSBG).
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Copyright">
+        <p>
+          The content and works created by the site operator on these pages
+          are subject to German copyright law. Reproduction, editing,
+          distribution and any kind of use beyond the limits of copyright law
+          require the written consent of the respective author or creator.
+          Downloads and copies of this site are permitted only for private,
+          non-commercial use.
+        </p>
+      </LegalSection>
     </LegalLayout>
   );
 }

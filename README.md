@@ -20,34 +20,28 @@ Open http://localhost:3000.
 
 ## Contact form / email setup
 
-The contact form posts to `app/api/contact/route.ts`. To have submissions
-emailed to you, sign up for [Resend](https://resend.com), get an API key,
-and set these environment variables (locally in `.env.local`, and in your
-Vercel project settings for production):
+The contact form posts to `app/api/contact/route.ts` and sends messages via
+[Resend](https://resend.com). Settings (in Vercel: Project Settings >
+Environment Variables; redeploy after changing them):
 
 ```
 RESEND_API_KEY=your_resend_api_key
-CONTACT_EMAIL=hello@augovia.com
+CONTACT_EMAIL=contact@augovia.com      # optional, defaults to lib/site.ts
+CONTACT_FROM=Augovia Website <website@augovia.com>   # optional, see below
 ```
 
-Until `RESEND_API_KEY` is set, submissions are logged to the server console
-instead of emailed, and the form still confirms receipt to the visitor;
-nothing is lost, but you should configure this before launch.
+Without `RESEND_API_KEY`, submissions are only logged on the server.
 
-The `from` address in `app/api/contact/route.ts` uses Resend's default
-`onboarding@resend.dev` sender, which works without any additional setup.
-Once you verify your own domain in Resend, update the `from` address to
-something like `Augovia <hello@augovia.com>`.
+Resend's default sender (`onboarding@resend.dev`) only delivers to the email
+address of your own Resend account. To deliver to contact@augovia.com
+reliably, verify augovia.com under Domains in Resend (add the DNS records it
+shows at IONOS), then set `CONTACT_FROM` to an address on that domain.
 
-## Before launch: content to finalize
+## Editing your details
 
-All personal and company details live in one file: `lib/site.ts`.
-Replace every [BRACKETED PLACEHOLDER] there (founder surname, LinkedIn URL,
-company name, address, managing director, email, phone, register details,
-VAT ID, retention periods, supervisory authority). The Imprint and Privacy
-pages and the founder/footer sections update automatically.
-
-The legal texts should be reviewed by qualified counsel before publication.
+All personal, company and legal details live in one file: `lib/site.ts`.
+The Imprint and Privacy pages, the founder section and the footer update
+automatically. The legal texts should be reviewed by qualified counsel.
 
 ## Deployment
 

@@ -1,53 +1,54 @@
 /**
  * ONE PLACE TO EDIT YOUR DETAILS
  * -------------------------------------------------------------
- * Replace every [BRACKETED PLACEHOLDER] below with your real
- * information. The values are used automatically on:
+ * The values below are used automatically on:
  *   - the main page (founder name, LinkedIn link)
  *   - /imprint  (Legal Notice)
  *   - /privacy  (Privacy Policy)
+ *   - the contact form (where messages are sent, unless the
+ *     CONTACT_EMAIL setting in Vercel says otherwise)
  *
- * Optional fields (VAT ID, business ID, regulatory, editorial):
- * if they do not apply to you, set the value to "" (empty quotes)
- * and the whole block disappears from the Imprint page.
- *
- * LinkedIn: paste your full profile URL, e.g.
- * "https://www.linkedin.com/in/your-name". Until it starts with
- * "http", the LinkedIn links are hidden on the website.
+ * Optional fields: set the value to "" (empty quotes) and that
+ * line or block disappears from the page.
  */
 export const site = {
   // ---- Main page -------------------------------------------------
   founderFirstName: "Nikolaj",
-  founderFullName: "Nikolaj [SURNAME]",
-  linkedinUrl: "[LINKEDIN URL]",
+  founderFullName: "Nikolaj Gründer",
+  linkedinUrl: "https://www.linkedin.com/in/nikolajgruender/",
+  websiteUrl: "www.augovia.com",
 
   // ---- Company details (Imprint and Privacy) ---------------------
   company: {
-    name: "[COMPANY NAME] GmbH",
-    street: "[STREET AND HOUSE NUMBER]",
-    postalCity: "[POSTAL CODE, CITY]",
+    name: "Augovia GmbH",
+    street: "Maria-Sibylla-Merian-Str. 48",
+    postalCity: "55122 Mainz",
     country: "Germany",
-    managingDirector: "[MANAGING DIRECTOR'S FULL NAME]",
-    email: "[EMAIL ADDRESS]",
-    phone: "[PHONE NUMBER]",
-    registerCourt: "[REGISTER COURT / AMTSGERICHT]",
-    registrationNumber: "HRB [NUMBER]",
+    registeredOffice: "Mainz",
+    managingDirector: "Nikolaj Gründer",
+    email: "contact@augovia.com",
+    registrationNumber: "HRB 51808",
+    vatId: "DE348469162",
+
     // Optional: set to "" if not applicable
-    vatId: "[VAT ID, IF APPLICABLE]",
-    businessId: "[GERMAN BUSINESS IDENTIFICATION NUMBER, IF ASSIGNED]",
-    regulatory:
-      "[DETAILS OF THE COMPETENT SUPERVISORY AUTHORITY, IF YOUR BUSINESS REQUIRES REGULATORY AUTHORISATION]",
+    phone: "",
+    // The register court, e.g. "Amtsgericht Mainz (Mainz Local Court)".
+    // If "", only the registration number is shown.
+    registerCourt: "",
+    businessId: "",
+    regulatory: "",
     editorialResponsible:
-      "[NAME AND ADDRESS OF THE PERSON RESPONSIBLE, ONLY IF REQUIRED UNDER SECTION 18(2) OF THE GERMAN INTERSTATE MEDIA TREATY]",
+      "Nikolaj Gründer, Augovia GmbH, Maria-Sibylla-Merian-Str. 48, 55122 Mainz",
   },
 
   // ---- Privacy Policy details -------------------------------------
   privacy: {
-    lastUpdated: "[DATE]",
-    serverLogRetention: "[RETENTION PERIOD]",
-    inquiryRetention: "[RETENTION PERIOD OR CRITERIA]",
-    mailboxProvider: "[EMAIL PROVIDER OF YOUR COMPANY MAILBOX]",
-    supervisoryAuthority: "[AUTHORITY NAME AND WEBSITE]",
+    lastUpdated: "October 2026",
+    // Optional: the provider of your company mailbox, e.g. "IONOS SE".
+    // If "", it is not named on the Privacy page.
+    mailboxProvider: "",
+    supervisoryAuthority:
+      "The State Commissioner for Data Protection and Freedom of Information of Rhineland-Palatinate (Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz), Hintere Bleiche 34, 55116 Mainz",
   },
 };
 

@@ -16,123 +16,89 @@ export default function PrivacyPage() {
   const c = site.company;
   const p = site.privacy;
 
+  const recipients = [
+    "Vercel Inc., USA (website hosting)",
+    "Resend, Inc., USA (delivery of contact form messages)",
+    "IONOS SE, Germany (domain management)",
+    ...(p.mailboxProvider ? [`${p.mailboxProvider} (company mailbox)`] : []),
+  ];
+
   return (
     <LegalLayout title="Privacy Policy">
-      <p>Last updated: {p.lastUpdated}</p>
+      <p>
+        This Privacy Policy applies to visitors of our website{" "}
+        {site.websiteUrl}.
+      </p>
 
-      <LegalSection title="1. Data Controller">
-        <p>The controller responsible for processing personal data on this website is:</p>
+      <LegalSection title="1. Controller">
         <Lines lines={[c.name, c.street, c.postalCity, c.country]} />
+        <p>Represented by the Managing Director: {c.managingDirector}</p>
         <p>
           Email: <EmailText email={c.email} />
-          <br />
-          Phone: {c.phone}
         </p>
       </LegalSection>
 
-      <LegalSection title="2. General Information">
-        <p>We take the protection of your personal data seriously.</p>
+      <LegalSection title="2. Visiting Our Website">
         <p>
-          This Privacy Policy explains how we collect, process, and protect
-          personal data when you visit our website, contact us, or interact
-          with our services.
+          Our website is hosted by Vercel Inc. (USA). When you visit it, Vercel
+          processes technically necessary connection data: your IP address,
+          the date and time of access, the page requested, and your browser
+          and device type. This processing serves to deliver the website and
+          to operate it securely.
         </p>
         <p>
-          We process personal data in accordance with the General Data
-          Protection Regulation (GDPR) and applicable German data protection
-          laws.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="3. Website Hosting and Server Logs">
-        <p>
-          Our website is hosted by Vercel Inc., a provider based in the United
-          States. Content may be delivered from servers in different regions,
-          including outside the European Economic Area.
-        </p>
-        <p>
-          Our domain is managed with IONOS SE, Germany. When your browser looks
+          Our domain is managed by IONOS SE (Germany). When your browser looks
           up our domain, the request may be processed by name servers operated
           by IONOS.
         </p>
         <p>
-          When you access our website, certain technical information may be
-          automatically processed, including:
+          The legal basis is Article 6(1)(f) GDPR, our legitimate interest in
+          providing a secure and functioning website. For the transfer of data
+          to the USA, we rely on the EU-US Data Privacy Framework and, in
+          addition, on Standard Contractual Clauses.
         </p>
-        <BulletList
-          items={[
-            "IP address",
-            "Date and time of access",
-            "Browser type and operating system",
-            "Pages accessed",
-            "Referrer URL, where available",
-          ]}
-        />
-        <p>
-          This processing is necessary to ensure the security, availability,
-          and proper functioning of our website.
-        </p>
-        <p>The legal basis is Article 6(1)(f) GDPR (legitimate interests).</p>
-        <p>Server logs are retained for {p.serverLogRetention}.</p>
       </LegalSection>
 
-      <LegalSection title="4. Contact and Business Inquiries">
+      <LegalSection title="3. Contact Form and Email">
         <p>
-          If you contact us by email or through the contact form on this
-          website, we process the information you provide, including your
-          name, business email address, company name, the topic of your
-          inquiry, and your message.
+          If you write to us by email or through the contact form on this
+          website, we process the information you provide (for example your
+          name, company, email address, the topic of your inquiry and your
+          message) in order to respond to your inquiry.
         </p>
         <p>
-          When you use the contact form, your entries are transmitted to our
-          server and forwarded to us as an email through the email delivery
-          service Resend (Resend, Inc., United States). Form submissions are
-          not stored in a database on the website.
+          Messages sent through the contact form are forwarded to our mailbox
+          by the email delivery service Resend, Inc. (USA). They are not stored
+          in a database on the website.
+          {p.mailboxProvider && ` Our company mailbox is provided by ${p.mailboxProvider}.`}
         </p>
         <p>
-          We use this information solely to respond to your inquiry and manage
-          potential or existing business relationships. Our company mailbox is
-          provided by {p.mailboxProvider}.
+          The legal basis is Article 6(1)(b) GDPR where your inquiry concerns
+          a potential collaboration, and Article 6(1)(f) GDPR otherwise. For
+          transfers to the USA, we rely on the EU-US Data Privacy Framework
+          where the provider is certified under it, and otherwise on Standard
+          Contractual Clauses.
         </p>
         <p>
-          The legal basis is Article 6(1)(f) GDPR for legitimate business
-          communications. Article 6(1)(b) GDPR may apply where processing is
-          necessary for a contract with the individual concerned or
-          pre-contractual steps requested by that individual.
-        </p>
-        <p>
-          Your information is retained for {p.inquiryRetention}, unless
+          We delete messages as soon as they are no longer needed and no
           statutory retention obligations apply.
         </p>
       </LegalSection>
 
-      <LegalSection title="5. Cookies and Similar Technologies">
-        <p>
-          Our website does not set cookies and does not use similar
-          technologies to store or read information on your device for
-          analytics, advertising, or personalisation. We therefore do not
-          display a cookie banner.
-        </p>
-        <p>
-          Technologies that are strictly necessary to provide a service
-          expressly requested by the user may be used without consent under
-          Section 25(2) TDDDG. If we introduce technologies that require
-          consent, we will obtain it before activating them and update this
-          Privacy Policy. Where personal data is then processed on the basis
-          of consent, the legal basis is Article 6(1)(a) GDPR.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="6. Analytics and Third-Party Services">
+      <LegalSection title="4. Cookies, Analytics and Fonts">
+        <p>The public pages of our website do not set cookies.</p>
         <p>
           We do not use web analytics, advertising or tracking services, social
-          media plug-ins, or embedded third-party content on this website. The
-          fonts used on the website are delivered from our own hosting and are
-          not loaded from external font servers when you visit.
+          media plug-ins, or embedded third-party content.
+        </p>
+        <p>
+          The fonts are hosted on our own server. No connection to servers of
+          Google or other font providers is established when you visit our
+          website.
         </p>
         {hasLinkedIn && (
           <p>
-            The website contains a link to our LinkedIn profile. No data is
+            The website contains a link to a LinkedIn profile. No data is
             transferred to LinkedIn merely by visiting our website. If you
             click the link, you leave our website and the privacy policy of
             LinkedIn applies.
@@ -140,115 +106,62 @@ export default function PrivacyPage() {
         )}
       </LegalSection>
 
-      <LegalSection title="7. Data Recipients">
+      <LegalSection title="5. Recipients">
         <p>
-          Personal data may be processed by service providers that support our
-          website and business operations, including hosting, IT
-          infrastructure, and communication providers. These currently are:
+          We use the following service providers, which process personal data
+          on our behalf:
         </p>
-        <BulletList
-          items={[
-            "Vercel Inc. (website hosting)",
-            "Resend, Inc. (delivery of contact form messages by email)",
-            "IONOS SE (domain management)",
-            `${p.mailboxProvider} (company mailbox)`,
-          ]}
-        />
+        <BulletList items={recipients} />
         <p>
           Where required, we enter into data processing agreements pursuant to
-          Article 28 GDPR.
-        </p>
-        <p>We may also disclose information where legally required.</p>
-      </LegalSection>
-
-      <LegalSection title="8. International Data Transfers">
-        <p>
-          Some of our service providers, in particular Vercel Inc. and Resend,
-          Inc., are based in the United States. If personal data is
-          transferred outside the European Economic Area (EEA), we ensure that
-          the transfer complies with Chapter V GDPR.
-        </p>
-        <p>
-          Transfers may rely on an adequacy decision by the European
-          Commission, such as the EU-US Data Privacy Framework where the
-          recipient is certified under it, or on appropriate safeguards,
-          including Standard Contractual Clauses and any required
-          supplementary measures.
+          Article 28 GDPR. We may also disclose information where we are
+          legally required to do so.
         </p>
       </LegalSection>
 
-      <LegalSection title="9. Data Retention">
+      <LegalSection title="6. Your Rights">
         <p>
-          We retain personal data only for as long as necessary for the
-          relevant processing purposes or as required by applicable law.
+          You have the right of access (Article 15 GDPR), rectification
+          (Article 16 GDPR), erasure (Article 17 GDPR), restriction of
+          processing (Article 18 GDPR), data portability (Article 20 GDPR),
+          and the right to object to processing based on legitimate interests
+          (Article 21 GDPR). To exercise these rights, write to us at{" "}
+          <EmailText email={c.email} />.
         </p>
         <p>
-          Specific retention periods or the criteria used to determine them
-          are provided in the relevant sections of this Privacy Policy.
+          You also have the right to lodge a complaint with a data protection
+          supervisory authority (Article 77 GDPR). The authority responsible
+          for us is:
         </p>
+        <p>{p.supervisoryAuthority}</p>
       </LegalSection>
 
-      <LegalSection title="10. Your Rights">
-        <p>Under the GDPR, you may have the following rights:</p>
-        <BulletList
-          items={[
-            "Right of access (Article 15 GDPR)",
-            "Right to rectification (Article 16 GDPR)",
-            "Right to erasure (Article 17 GDPR)",
-            "Right to restriction of processing (Article 18 GDPR)",
-            "Right to data portability (Article 20 GDPR)",
-            "Right to object (Article 21 GDPR)",
-            "Right to withdraw consent (Article 7(3) GDPR)",
-          ]}
-        />
-        <p>
-          You may also object at any time to the processing of your personal
-          data for direct marketing purposes.
-        </p>
-        <p>
-          To exercise your rights, contact us at <EmailText email={c.email} />.
-        </p>
-        <p>
-          You also have the right to lodge a complaint with a competent data
-          protection supervisory authority.
-        </p>
-        <p>Competent supervisory authority: {p.supervisoryAuthority}</p>
-      </LegalSection>
-
-      <LegalSection title="11. Data Security">
+      <LegalSection title="7. Data Security">
         <p>
           We implement appropriate technical and organisational measures to
-          protect personal data against unauthorised access, loss, alteration,
-          or disclosure.
+          protect personal data against unauthorised access, loss, alteration
+          or disclosure. Our website uses HTTPS encryption to protect data
+          during transmission.
         </p>
-        <p>Our website uses HTTPS encryption to protect data during transmission.</p>
       </LegalSection>
 
-      <LegalSection title="12. Automated Decision-Making">
+      <LegalSection title="8. Automated Decision-Making">
         <p>
           We do not use personal data collected through this website for
-          automated decision-making, including profiling, that produces legal
-          or similarly significant effects within the meaning of Article 22
-          GDPR.
+          automated decision-making, including profiling, within the meaning
+          of Article 22 GDPR.
         </p>
       </LegalSection>
 
-      <LegalSection title="13. Changes to This Privacy Policy">
+      <LegalSection title="9. Changes to This Privacy Policy">
         <p>
-          We may update this Privacy Policy to reflect changes in our website,
-          data processing activities, or applicable legal requirements.
+          We may update this Privacy Policy to reflect changes to our website,
+          our data processing or legal requirements. The latest version is
+          always available on this page.
         </p>
-        <p>The latest version will always be available on this page.</p>
       </LegalSection>
 
-      <LegalSection title="14. Contact">
-        <p>For privacy-related inquiries, please contact:</p>
-        <p>
-          {c.name}
-          <br />
-          <EmailText email={c.email} />
-        </p>
-      </LegalSection>
+      <p className="text-[14px] text-ink/50">Last updated: {p.lastUpdated}</p>
     </LegalLayout>
   );
 }
