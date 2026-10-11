@@ -16,15 +16,12 @@ export default function PrivacyPage() {
   const c = site.company;
   const p = site.privacy;
 
-  // IONOS is listed once if it provides both the domain and the mailbox
-  const mailboxIsIonos = /ionos/i.test(p.mailboxProvider);
+  const m = p.mailbox;
   const recipients = [
     "Vercel Inc., USA (website hosting)",
     "Resend, Inc., USA (delivery of contact form messages)",
-    mailboxIsIonos
-      ? "IONOS SE, Germany (domain management and company mailbox)"
-      : "IONOS SE, Germany (domain management)",
-    ...(p.mailboxProvider && !mailboxIsIonos ? [`${p.mailboxProvider} (company mailbox)`] : []),
+    "IONOS SE, Germany (domain management)",
+    ...(m.service ? [`${m.company}, ${m.country} (company mailbox, ${m.service})`] : []),
   ];
 
   return (
@@ -74,7 +71,10 @@ export default function PrivacyPage() {
           Messages sent through the contact form are forwarded to our mailbox
           by the email delivery service Resend, Inc. (USA). They are not stored
           in a database on the website.
-          {p.mailboxProvider && ` Our company mailbox is provided by ${p.mailboxProvider}.`}
+          {m.service &&
+            ` Our company mailbox runs on ${m.service}, operated by ${m.company} (${m.country})${
+              m.purchasedVia ? ` and purchased through ${m.purchasedVia}` : ""
+            }. Where Microsoft processes data outside the European Economic Area, transfers rely on the EU-US Data Privacy Framework and Standard Contractual Clauses.`}
         </p>
         <p>
           The legal basis is Article 6(1)(b) GDPR where your inquiry concerns

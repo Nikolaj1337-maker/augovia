@@ -44,9 +44,14 @@ export const site = {
   // ---- Privacy Policy details -------------------------------------
   privacy: {
     lastUpdated: "October 2026",
-    // Optional: the provider of your company mailbox, e.g. "IONOS SE".
-    // If "", it is not named on the Privacy page.
-    mailboxProvider: "IONOS SE",
+    // Company mailbox. Set service to "" to leave it off the Privacy page.
+    mailbox: {
+      service: "Microsoft 365",
+      company: "Microsoft Ireland Operations Limited",
+      country: "Ireland",
+      // Who you bought it from, if different (set to "" otherwise)
+      purchasedVia: "IONOS SE",
+    },
     supervisoryAuthority:
       "The State Commissioner for Data Protection and Freedom of Information of Rhineland-Palatinate (Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz), Hintere Bleiche 34, 55116 Mainz",
   },
