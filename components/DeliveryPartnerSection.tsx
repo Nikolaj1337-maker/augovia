@@ -76,17 +76,15 @@ export default function DeliveryPartnerSection() {
           {steps.map((step, i) => (
             <Fragment key={step.n}>
               <div className="mx-auto flex h-full w-full min-w-0 max-w-md flex-col rounded-3xl border border-ivory/15 bg-ivory/[0.04] p-5 lg:max-w-none">
-                <ProcessPanel label={step.label} state={state}>
+                <ProcessPanel label={step.label} state={state} number={step.n}>
                   <step.Illustration state={state} />
                 </ProcessPanel>
-                <div className="px-2">
-                  <p className="mt-6 text-[13px] leading-5 text-mist">{step.n}</p>
-                  <h3 className="mt-1 min-h-[1.75rem] text-[19px] font-medium leading-7">
+                {/* Heading and quote sit at the same fixed distances in every card */}
+                <div className="px-2 pb-1">
+                  <h3 className="mt-5 text-[19px] font-medium leading-7">
                     {step.title}
                   </h3>
-                </div>
-                <div className="mx-2 mt-auto pt-6">
-                  <p className="border-t border-ivory/10 pt-5 font-serif text-[18px] italic leading-snug text-ivory/85">
+                  <p className="mt-2 font-serif text-[18px] italic leading-snug text-ivory/85">
                     {step.quote}
                   </p>
                 </div>

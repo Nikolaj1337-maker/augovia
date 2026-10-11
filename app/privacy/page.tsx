@@ -16,11 +16,15 @@ export default function PrivacyPage() {
   const c = site.company;
   const p = site.privacy;
 
+  // IONOS is listed once if it provides both the domain and the mailbox
+  const mailboxIsIonos = /ionos/i.test(p.mailboxProvider);
   const recipients = [
     "Vercel Inc., USA (website hosting)",
     "Resend, Inc., USA (delivery of contact form messages)",
-    "IONOS SE, Germany (domain management)",
-    ...(p.mailboxProvider ? [`${p.mailboxProvider} (company mailbox)`] : []),
+    mailboxIsIonos
+      ? "IONOS SE, Germany (domain management and company mailbox)"
+      : "IONOS SE, Germany (domain management)",
+    ...(p.mailboxProvider && !mailboxIsIonos ? [`${p.mailboxProvider} (company mailbox)`] : []),
   ];
 
   return (

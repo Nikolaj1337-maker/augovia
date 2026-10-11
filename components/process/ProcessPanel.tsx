@@ -6,23 +6,40 @@ import { COLORS } from "./palette";
 export function ProcessPanel({
   label,
   state,
+  number,
   children,
 }: {
   label: string;
   state: CycleState;
+  /** Step number, shown large in the background (as in "What we do") */
+  number?: string;
   children?: ReactNode;
 }) {
   return (
-    <div role="img" aria-label={label} className="rounded-2xl bg-ivory p-4">
+    <div
+      role="img"
+      aria-label={number ? `Step ${number}: ${label}` : label}
+      className="relative overflow-hidden rounded-2xl bg-ivory p-4"
+    >
+      {number && (
+        <span
+          className="pointer-events-none absolute right-4 top-0 select-none font-serif text-8xl italic leading-none text-ink/[0.07]"
+          aria-hidden="true"
+        >
+          {number}
+        </span>
+      )}
       <svg
         viewBox="0 0 240 140"
-        className="block h-auto w-full"
+        className="relative block h-auto w-full"
         fill="none"
         aria-hidden="true"
       >
         <g opacity={state.opacity}>{children}</g>
       </svg>
-      <FromToBar state={state} />
+      <div className="relative">
+        <FromToBar state={state} />
+      </div>
     </div>
   );
 }
